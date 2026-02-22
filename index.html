@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MRKWQJ8Q');</script>
-<!-- End Google Tag Manager -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jio Fiber Lucknow</title>
@@ -15,12 +8,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <!-- Google Tag Manager (paste later) -->
 
   <style>
-    body
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MRKWQJ8Q"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-    {
+    body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: linear-gradient(135deg, #1e3c72, #2a5298);
@@ -31,14 +19,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       color: white;
     }
 
-    /* Top Right Button */
+    /* Buttons */
     .top-btn {
       position: fixed;
       top: 20px;
       right: 20px;
     }
 
-    /* Bottom Left Button */
     .bottom-btn {
       position: fixed;
       bottom: 20px;
@@ -55,7 +42,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       font-size: 16px;
     }
 
-    /* Center Form */
+    /* Form Box */
     .form-box {
       background: white;
       color: black;
@@ -74,8 +61,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       border-radius: 5px;
     }
 
-    h2 {
-      margin-top: 0;
+    /* Success message */
+    .success {
+      display: none;
+      color: green;
+      margin-top: 10px;
+      font-size: 14px;
     }
 
     /* Popup Overlay */
@@ -89,6 +80,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       background: rgba(0,0,0,0.7);
       justify-content: center;
       align-items: center;
+    }
+
+    .close {
+      background: none;
+      border: none;
+      font-size: 18px;
+      float: right;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -104,24 +103,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- Center Lead Form -->
 <div class="form-box">
   <h2>Get Jio Fiber Connection</h2>
-  <form action="thankyou.html">
-    <input type="text" placeholder="Name" required>
-    <input type="email" placeholder="Email" required>
-    <input type="tel" placeholder="Phone" required>
+
+  <form id="leadForm">
+    <input type="text" id="name" placeholder="Name" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="tel" id="phone" placeholder="Phone" required>
     <button class="btn" type="submit">Submit</button>
   </form>
+
+  <p id="successMessage" class="success">
+    Your information has been successfully submitted.
+  </p>
 </div>
 
-<!-- Popup Form (triggered by buttons) -->
+<!-- Popup Form -->
 <div class="popup" id="popupForm">
   <div class="form-box">
+    <button class="close" onclick="closeForm()">✖</button>
     <h2>Book Your Connection</h2>
-    <form action="thankyou.html">
-      <input type="text" placeholder="Name" required>
-      <input type="email" placeholder="Email" required>
-      <input type="tel" placeholder="Phone" required>
+
+    <form id="popupLeadForm">
+      <input type="text" id="pname" placeholder="Name" required>
+      <input type="email" id="pemail" placeholder="Email" required>
+      <input type="tel" id="pphone" placeholder="Phone" required>
       <button class="btn" type="submit">Submit</button>
     </form>
+
+    <p id="popupSuccess" class="success">
+      Your information has been successfully submitted.
+    </p>
   </div>
 </div>
 
@@ -129,6 +139,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   function openForm() {
     document.getElementById("popupForm").style.display = "flex";
   }
+
+  function closeForm() {
+    document.getElementById("popupForm").style.display = "none";
+  }
+
+  // Center Form Submission
+  document.getElementById("leadForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+
+    console.log("Center Lead:", { name, email, phone });
+
+    document.getElementById("successMessage").style.display = "block";
+    this.reset();
+  });
+
+  // Popup Form Submission
+  document.getElementById("popupLeadForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("pname").value;
+    const email = document.getElementById("pemail").value;
+    const phone = document.getElementById("pphone").value;
+
+    console.log("Popup Lead:", { name, email, phone });
+
+    document.getElementById("popupSuccess").style.display = "block";
+    this.reset();
+  });
 </script>
 
 </body>
