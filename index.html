@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jio Fiber Lucknow</title>
+
+  <!-- Google Tag Manager (paste later) -->
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: white;
+      text-align: center;
+    }
+
+    .hero {
+      padding: 80px 20px;
+    }
+
+    .btn {
+      background: red;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .top-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    .bottom-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+    }
+
+    /* Popup form */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form-box {
+      background: white;
+      color: black;
+      padding: 20px;
+      border-radius: 8px;
+      width: 300px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+    }
+  </style>
+</head>
+
+<body>
+
+<button class="btn top-btn" onclick="openForm()">Book Now</button>
+
+<div class="hero">
+  <h1>Entertainment + Internet</h1>
+  <p>High-speed internet up to 1Gbps</p>
+  <button class="btn" onclick="openForm()">Enquire Now</button>
+</div>
+
+<button class="btn bottom-btn" onclick="openForm()">Enquire Now</button>
+
+<!-- Popup Form -->
+<div class="popup" id="popupForm">
+  <div class="form-box">
+    <h3>Book Your Connection</h3>
+    <form action="thankyou.html">
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <input type="tel" placeholder="Phone" required>
+      <button class="btn" type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  function openForm() {
+    document.getElementById("popupForm").style.display = "flex";
+  }
+</script>
+
+</body>
+</html>
